@@ -1,0 +1,18 @@
+{
+  "members": [
+    { "id": "1", "name": "John Smith", "birthYear": 1950 },
+    { "id": "2", "name": "Jane Smith", "birthYear": 1952 },
+    { "id": "3", "name": "Bob Smith", "birthYear": 1975 },
+    { "id": "4", "name": "Alice Smith", "birthYear": 1977 },
+    { "id": "5", "name": "Charlie Smith", "birthYear": 2000 },
+    { "id": "6", "name": "Diana Smith", "birthYear": 2003 }
+  ],
+  "relationships": [
+    { "type": "parent-child", "parentId": "1", "childId": "3" },
+    { "type": "parent-child", "parentId": "2", "childId": "3" },
+    { "type": "parent-child", "parentId": "1", "childId": "4" },
+    { "type": "parent-child", "parentId": "2", "childId": "4" },
+    { "type": "parent-child", "parentId": "3", "childId": "5" },
+    { "type": "parent-child", "parentId": "3", "childId": "6" }
+  ]
+}

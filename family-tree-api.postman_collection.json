@@ -1,0 +1,264 @@
+{
+  "info": {
+    "name": "Family Tree SVG API",
+    "description": "Collection of requests to test the Family Tree SVG API with varying complexity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Simple Single Person",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Alice Johnson\", \"birthYear\": 1990 }\n  ],\n  \"relationships\": []\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Parent and Child",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Robert Davis\", \"birthYear\": 1965 },\n    { \"id\": \"2\", \"name\": \"Emily Davis\", \"birthYear\": 1995 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"2\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Nuclear Family (2 Parents, 2 Children)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Michael Brown\", \"birthYear\": 1970 },\n    { \"id\": \"2\", \"name\": \"Sarah Brown\", \"birthYear\": 1972 },\n    { \"id\": \"3\", \"name\": \"Jessica Brown\", \"birthYear\": 1998 },\n    { \"id\": \"4\", \"name\": \"Daniel Brown\", \"birthYear\": 2000 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"4\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Three Generations",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"George Wilson\", \"birthYear\": 1945 },\n    { \"id\": \"2\", \"name\": \"Martha Wilson\", \"birthYear\": 1947 },\n    { \"id\": \"3\", \"name\": \"Thomas Wilson\", \"birthYear\": 1970 },\n    { \"id\": \"4\", \"name\": \"Lisa Wilson\", \"birthYear\": 1972 },\n    { \"id\": \"5\", \"name\": \"Emma Wilson\", \"birthYear\": 1995 },\n    { \"id\": \"6\", \"name\": \"Noah Wilson\", \"birthYear\": 1998 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"6\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Extended Family with Siblings",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"James Taylor\", \"birthYear\": 1960 },\n    { \"id\": \"2\", \"name\": \"Patricia Taylor\", \"birthYear\": 1962 },\n    { \"id\": \"3\", \"name\": \"Kevin Taylor\", \"birthYear\": 1985 },\n    { \"id\": \"4\", \"name\": \"Amanda Taylor\", \"birthYear\": 1987 },\n    { \"id\": \"5\", \"name\": \"Ryan Taylor\", \"birthYear\": 1990 },\n    { \"id\": \"6\", \"name\": \"Sophie Taylor\", \"birthYear\": 2010 },\n    { \"id\": \"7\", \"name\": \"Oliver Taylor\", \"birthYear\": 2012 },\n    { \"id\": \"8\", \"name\": \"Mia Taylor\", \"birthYear\": 2015 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"4\", \"childId\": \"7\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"8\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. Four Generations Dynasty",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Henry Anderson\", \"birthYear\": 1930 },\n    { \"id\": \"2\", \"name\": \"Margaret Anderson\", \"birthYear\": 1932 },\n    { \"id\": \"3\", \"name\": \"William Anderson\", \"birthYear\": 1955 },\n    { \"id\": \"4\", \"name\": \"Elizabeth Anderson\", \"birthYear\": 1957 },\n    { \"id\": \"5\", \"name\": \"Christopher Anderson\", \"birthYear\": 1980 },\n    { \"id\": \"6\", \"name\": \"Jennifer Anderson\", \"birthYear\": 1982 },\n    { \"id\": \"7\", \"name\": \"Sophia Anderson\", \"birthYear\": 2005 },\n    { \"id\": \"8\", \"name\": \"Liam Anderson\", \"birthYear\": 2008 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"7\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"8\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7. Large Extended Family (10+ Members)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Richard Martinez\", \"birthYear\": 1940 },\n    { \"id\": \"2\", \"name\": \"Barbara Martinez\", \"birthYear\": 1942 },\n    { \"id\": \"3\", \"name\": \"David Martinez\", \"birthYear\": 1965 },\n    { \"id\": \"4\", \"name\": \"Susan Martinez\", \"birthYear\": 1967 },\n    { \"id\": \"5\", \"name\": \"Joseph Martinez\", \"birthYear\": 1969 },\n    { \"id\": \"6\", \"name\": \"Maria Martinez\", \"birthYear\": 1971 },\n    { \"id\": \"7\", \"name\": \"Alexander Martinez\", \"birthYear\": 1990 },\n    { \"id\": \"8\", \"name\": \"Isabella Martinez\", \"birthYear\": 1992 },\n    { \"id\": \"9\", \"name\": \"Ethan Martinez\", \"birthYear\": 1994 },\n    { \"id\": \"10\", \"name\": \"Ava Martinez\", \"birthYear\": 1996 },\n    { \"id\": \"11\", \"name\": \"Mason Martinez\", \"birthYear\": 1998 },\n    { \"id\": \"12\", \"name\": \"Charlotte Martinez\", \"birthYear\": 2000 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"7\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"8\" },\n    { \"type\": \"parent-child\", \"parentId\": \"4\", \"childId\": \"9\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"10\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"11\" },\n    { \"type\": \"parent-child\", \"parentId\": \"6\", \"childId\": \"12\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "8. Multiple Root Ancestors",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Charles Lee\", \"birthYear\": 1950 },\n    { \"id\": \"2\", \"name\": \"Nancy Lee\", \"birthYear\": 1952 },\n    { \"id\": \"3\", \"name\": \"Frank Garcia\", \"birthYear\": 1948 },\n    { \"id\": \"4\", \"name\": \"Helen Garcia\", \"birthYear\": 1950 },\n    { \"id\": \"5\", \"name\": \"Paul Lee\", \"birthYear\": 1975 },\n    { \"id\": \"6\", \"name\": \"Linda Garcia\", \"birthYear\": 1978 },\n    { \"id\": \"7\", \"name\": \"Grace Lee\", \"birthYear\": 2000 },\n    { \"id\": \"8\", \"name\": \"Victor Garcia\", \"birthYear\": 2002 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"4\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"7\" },\n    { \"type\": \"parent-child\", \"parentId\": \"6\", \"childId\": \"8\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9. Members Without Birth Years",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Arthur Rodriguez\" },\n    { \"id\": \"2\", \"name\": \"Mary Rodriguez\" },\n    { \"id\": \"3\", \"name\": \"Samuel Rodriguez\", \"birthYear\": 1985 },\n    { \"id\": \"4\", \"name\": \"Rachel Rodriguez\" },\n    { \"id\": \"5\", \"name\": \"Benjamin Rodriguez\", \"birthYear\": 2010 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"5\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Complex Multi-Branch Family",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"members\": [\n    { \"id\": \"1\", \"name\": \"Edward Thompson\", \"birthYear\": 1935 },\n    { \"id\": \"2\", \"name\": \"Dorothy Thompson\", \"birthYear\": 1937 },\n    { \"id\": \"3\", \"name\": \"Steven Thompson\", \"birthYear\": 1960 },\n    { \"id\": \"4\", \"name\": \"Carol Thompson\", \"birthYear\": 1962 },\n    { \"id\": \"5\", \"name\": \"Brian Thompson\", \"birthYear\": 1964 },\n    { \"id\": \"6\", \"name\": \"Angela Thompson\", \"birthYear\": 1966 },\n    { \"id\": \"7\", \"name\": \"Timothy Thompson\", \"birthYear\": 1985 },\n    { \"id\": \"8\", \"name\": \"Rebecca Thompson\", \"birthYear\": 1987 },\n    { \"id\": \"9\", \"name\": \"Matthew Thompson\", \"birthYear\": 1989 },\n    { \"id\": \"10\", \"name\": \"Sarah Thompson\", \"birthYear\": 1991 },\n    { \"id\": \"11\", \"name\": \"Jacob Thompson\", \"birthYear\": 1993 },\n    { \"id\": \"12\", \"name\": \"Hannah Thompson\", \"birthYear\": 1995 },\n    { \"id\": \"13\", \"name\": \"Joshua Thompson\", \"birthYear\": 2010 },\n    { \"id\": \"14\", \"name\": \"Abigail Thompson\", \"birthYear\": 2012 },\n    { \"id\": \"15\", \"name\": \"Andrew Thompson\", \"birthYear\": 2014 }\n  ],\n  \"relationships\": [\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"3\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"4\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"5\" },\n    { \"type\": \"parent-child\", \"parentId\": \"1\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"2\", \"childId\": \"6\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"7\" },\n    { \"type\": \"parent-child\", \"parentId\": \"3\", \"childId\": \"8\" },\n    { \"type\": \"parent-child\", \"parentId\": \"4\", \"childId\": \"9\" },\n    { \"type\": \"parent-child\", \"parentId\": \"4\", \"childId\": \"10\" },\n    { \"type\": \"parent-child\", \"parentId\": \"5\", \"childId\": \"11\" },\n    { \"type\": \"parent-child\", \"parentId\": \"6\", \"childId\": \"12\" },\n    { \"type\": \"parent-child\", \"parentId\": \"7\", \"childId\": \"13\" },\n    { \"type\": \"parent-child\", \"parentId\": \"9\", \"childId\": \"14\" },\n    { \"type\": \"parent-child\", \"parentId\": \"11\", \"childId\": \"15\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/family-tree",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "family-tree"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

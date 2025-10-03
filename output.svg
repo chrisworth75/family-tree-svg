@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="440" viewBox="0 0 380 440">
+  <defs>
+    <style>
+      .person-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .person-name { font-family: Arial, sans-serif; font-size: 14px; fill: #000; text-anchor: middle; }
+      .person-details { font-family: Arial, sans-serif; font-size: 11px; fill: #555; text-anchor: middle; }
+      .relationship-line { stroke: #666; stroke-width: 2; fill: none; }
+      .marriage-line { stroke: #1976d2; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Relationship lines -->
+  <line class="marriage-line" x1="170" y1="80" x2="210" y2="80" />
+  <path class="relationship-line" d="M 190 80 L 190 150 L 110 150 L 110 190" />
+  <path class="relationship-line" d="M 190 80 L 190 150 L 270 150 L 270 190" />
+  <path class="relationship-line" d="M 110 250 L 110 290 L 110 290 L 110 330" />
+  <path class="relationship-line" d="M 110 250 L 110 290 L 270 290 L 270 330" />
+
+  <!-- Person boxes -->
+  <g>
+    <rect class="person-box" x="50" y="50" width="120" height="60" rx="5" />
+    <text class="person-name" x="110" y="75">John Smith</text>
+    <text class="person-details" x="110" y="92">b. 1950</text>
+  </g>
+  <g>
+    <rect class="person-box" x="210" y="50" width="120" height="60" rx="5" />
+    <text class="person-name" x="270" y="75">Jane Smith</text>
+    <text class="person-details" x="270" y="92">b. 1952</text>
+  </g>
+  <g>
+    <rect class="person-box" x="50" y="190" width="120" height="60" rx="5" />
+    <text class="person-name" x="110" y="215">Bob Smith</text>
+    <text class="person-details" x="110" y="232">b. 1975</text>
+  </g>
+  <g>
+    <rect class="person-box" x="210" y="190" width="120" height="60" rx="5" />
+    <text class="person-name" x="270" y="215">Alice Smith</text>
+    <text class="person-details" x="270" y="232">b. 1977</text>
+  </g>
+  <g>
+    <rect class="person-box" x="50" y="330" width="120" height="60" rx="5" />
+    <text class="person-name" x="110" y="355">Charlie Smith</text>
+    <text class="person-details" x="110" y="372">b. 2000</text>
+  </g>
+  <g>
+    <rect class="person-box" x="210" y="330" width="120" height="60" rx="5" />
+    <text class="person-name" x="270" y="355">Diana Smith</text>
+    <text class="person-details" x="270" y="372">b. 2003</text>
+  </g>
+</svg>
