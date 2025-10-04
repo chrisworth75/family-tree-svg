@@ -80,7 +80,7 @@ pipeline {
                         echo "Deploying production container..."
                         docker stop ${IMAGE_NAME} || true
                         docker rm ${IMAGE_NAME} || true
-                        docker run -d --name ${IMAGE_NAME} -p 3000:3000 ${IMAGE_NAME}:latest
+                        docker run -d --name ${IMAGE_NAME} -p 3001:3000 ${IMAGE_NAME}:latest
                         echo "Production deployment successful"
                     """
                 }
