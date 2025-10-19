@@ -53,6 +53,8 @@ pipeline {
             steps {
                 script {
                     sh """
+                        echo "Killing any process using port 3001..."
+                        lsof -ti:3001 | xargs kill -9 || true
                         echo "Testing Docker container..."
                         docker stop ${TEST_CONTAINER} || true
                         docker rm ${TEST_CONTAINER} || true
@@ -77,6 +79,8 @@ pipeline {
             steps {
                 script {
                     sh """
+                        echo "Killing any process using port 3001..."
+                        lsof -ti:3001 | xargs kill -9 || true
                         echo "Deploying production container..."
                         docker stop ${IMAGE_NAME} || true
                         docker rm ${IMAGE_NAME} || true
